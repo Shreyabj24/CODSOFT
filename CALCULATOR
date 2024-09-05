@@ -1,0 +1,37 @@
+const button = document.querySelectorAll("button");  // selecting all elements and storing as 'button'//
+const result = document.getElementById("result"); 
+
+for(let i =0; i<button.length; i++){
+button[i].addEventListener("click", () =>  //attaching a click event listener to each button//
+{
+const buttonValue = button[i].textContent;
+if(buttonValue === "C")
+{
+  clearResult();  //calling a function to clear display//
+}
+else if(buttonValue === "=")
+{
+  calculateResult();
+}
+else 
+{
+  appendValue(buttonValue); // if its neither C nor =, it appends the value of the button to the display//
+}
+});
+
+}
+
+function clearResult()
+{
+  result.value="";
+}
+
+function calculateResult()
+{
+  result.value =eval(result.value);
+}
+
+function appendValue(buttonValue)
+{
+  result.value = result.value + buttonValue;  //appending to display it on the screen//
+}
